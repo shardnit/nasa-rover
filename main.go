@@ -11,6 +11,10 @@ import (
 )
 
 func main() {
+	if len(os.Args) == 1 {
+		glog.Errorf("Please provide input filename as first argument")
+		os.Exit(1)
+	}
 	inputFile := os.Args[1]
 	if file, err := os.Open(inputFile); err == nil {
 		defer file.Close()
